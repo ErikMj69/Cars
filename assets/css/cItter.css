@@ -1,0 +1,107 @@
+/* * * * * * * * * * *  CITTER.CSS  * * * * * * * * * * * #
+ *
+ *  @todo
+ *    CSS for game elements
+ *
+ *  @author
+ *    Erik Martinez <erik.mj69@gmail.com>
+ *
+ *  @license
+ *    Copyright (C) 2016 Erik Martinez
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* 1. GENERALISMS
+ * * * * * * */
+@font-face {
+  font-family: 'GillSans';
+  src: url(../fonts/Phenomena-ExtraBold.otf);
+}
+
+body {
+  background-color: #f0f0f0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mainContainer {
+  height: 100%;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #C0C0C0;
+  margin-top: -1%;
+  padding-top: 0.5%;
+  height: 7%;
+  font-family: 'GillSans';
+  font-size: 3em;
+  text-align: center;
+}
+
+.scenary {
+  background-color: #25337a;
+  border-left: 1px solid #0f1e48;
+  border-right: 1px solid #0f1e48;
+  height: 95%;
+}
+
+#sep_1, #sep_2, #sep_3 {
+  background-color: #8198f1;
+  position: absolute;
+  height: 100%;
+}
+
+#sep_1, #sep_3 {
+  width: 5px;
+}
+
+#sep_1 {
+  left: 25%;
+}
+
+#sep_2 {
+  left: 50%;
+  width: 10px;
+}
+
+#sep_3 {
+  left: 75%;
+}
+
+#car_1 {
+  background: transparent no-repeat center center url(../images/BlueCar.png);
+  background-size: contain;
+  left: 75%;
+  bottom: 50px;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+}
+
+#car_2 {
+  background: transparent no-repeat center center url(../images/PinkCar.png);
+  background-size: contain;
+  left: 0.5%;
+  bottom: 50px;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+}
+
+/* 2. 
+ * * * * * * * * * */
