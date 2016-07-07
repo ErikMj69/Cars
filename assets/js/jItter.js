@@ -24,3 +24,37 @@
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+(function() {
+
+  // SET SIZE TO ELEMENTS
+  var bodyMain = document.getElementsByClassName('bodyMain')[0],
+      gameBox = document.getElementById('gameBox'),
+      sep_1 = document.getElementById('sep_1'),
+      sep_2 = document.getElementById('sep_2'),
+      sep_3 = document.getElementById('sep_3'),
+      car_1 = document.getElementById('car_1'),
+      car_2 = document.getElementById('car_2'),
+      
+      h = bodyMain.clientHeight,
+      dw = h / 1.77,
+      hlf = Math.round(dw / 2),
+      qtr = Math.round(dw / 4),
+      s1 = qtr - 2,
+      s2 = hlf - 5,
+      s3 = (qtr * 3) - 2,
+      csz = Math.round(qtr * 0.60);
+  
+  gameBox.style.width = Math.round(dw) + "px";
+  
+  sep_1.style.left = s1 + "px";
+  sep_2.style.left = s2 + "px";
+  sep_3.style.left = s3 + "px";
+  
+  car_1.style.width = csz + "px";
+  car_1.style.height = Math.round(csz * 1.5) + "px";
+  car_2.style.width = csz + "px";
+  car_2.style.height = Math.round(csz * 1.5) + "px";
+  car_1.style.left = Math.round(qtr * 0.2) + "px";
+  car_2.style.left = Math.round((qtr * 3) + (qtr * 0.2)) + "px";
+
+})();
