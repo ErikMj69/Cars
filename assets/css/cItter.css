@@ -62,14 +62,15 @@ button {
   height: 100%;
 }
 
+
+/* 2. DESIGN
+ * * * * * * */
 .mainContainer > header {
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid #C0C0C0;
   margin-top: -1%;
-  padding-top: 0.5%;
   height: 7%;
   font-family: 'Phenomena';
-  font-size: 3em;
   text-align: center;
 }
 
@@ -79,7 +80,8 @@ button {
 }
 
 #gameBox {
-  background-color: #25337a;
+  background: #25337a no-repeat center center url(../images/Bg.svg);
+  background-size: contain;
   border-left: 1px solid #0f1e48;
   border-right: 1px solid #0f1e48;
   margin: 0 auto;
@@ -110,9 +112,8 @@ button {
 }
 
 #gameMainMenu > header {
-  margin-top: 35%;
+  margin-top: 30%;
   font-family: 'PhenomenaExtraLight';
-  font-size: 10em;
   text-align: center;
 }
 
@@ -136,16 +137,7 @@ button {
 }
 
 #playButton {
-  background-image: url(../images/play.png) !important;
-  width: 150px;
-  height: 150px;
-}
-
-#statsButton, #downloadButton,
-#bgSoundButton, #fxSoundButton {
-  margin: 0 5px;
-  width: 40px;
-  height: 40px;
+  background-image: url(../images/play.svg) !important;
 }
 
 #statsButton {
@@ -153,21 +145,19 @@ button {
 }
 
 #downloadButton {
-  background-image: url(../images/star.png) !important;
+  background-image: url(../images/star.svg) !important;
 }
 
 #bgSoundButton {
-  background-image: url(../images/sound-bg.png) !important;
+  background-image: url(../images/sound-bg.svg) !important;
 }
 
 #fxSoundButton {
-  background-image: url(../images/sound-fx.png) !important;
+  background-image: url(../images/sound-fx.svg) !important;
 }
 
 .credits {
-  margin-top: 50px;
   font-family: 'PhenomenaExtraLight';
-  font-size: 1.2em;
 }
 
 #gameEnv {
@@ -180,40 +170,21 @@ button {
   top: 5px;
   left: 5px;
   position: absolute;
-  width: 50px;
-  height: 50px;
 }
 
 #score {
   top: -0.2em;
   right: 10px;
   position: absolute;
-  width: 50px;
-  height: 100px;
   color: #FFF;
   font-family: 'PhenomenaExtraLight';
-  font-size: 5em;
   text-align: right;
-}
-
-#sep_1, #sep_2, #sep_3 {
-  background-color: #8198f1;
-  position: absolute;
-  height: 100%;
-}
-
-#sep_1, #sep_3 {
-  width: 5px;
-}
-
-#sep_2 {
-  width: 10px;
 }
 
 #car_1, #car_2 {
   background: transparent no-repeat center center;
   background-size: contain;
-  bottom: 50px;
+  bottom: 5%;
   position: absolute;
 }
 
@@ -225,5 +196,103 @@ button {
   background-image: url(../images/BlueCar.svg);
 }
 
-/* 2. 
+/* 3. MEDIA QUERIES
  * * * * * * * * * */
+@media screen and (max-height: 1080px) {
+  .mainContainer > header {
+    padding-top: 0.5%;
+    font-size: 3em;
+  }
+  #gameMainMenu > header {
+    font-size: 10em;
+  }
+  #playButton {
+    width: 150px;
+    height: 150px;
+  }
+  #statsButton, #downloadButton,
+  #bgSoundButton, #fxSoundButton {
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .credits {
+    margin-top: 50px;
+    font-size: 1.2em;
+  }
+  #pauseButton {
+    width: 50px;
+    height: 50px;
+  }
+  #score {
+    width: 50px;
+    height: 100px;
+    font-size: 5em;
+  }
+}
+
+@media screen and (max-height: 768px) {
+  .mainContainer > header {
+    padding-top: 0.3%;
+    font-size: 2em;
+  }
+  #gameMainMenu > header {
+    font-size: 6em;
+  }
+  #playButton {
+    width: 85px;
+    height: 85px;
+  }
+  #statsButton, #downloadButton,
+  #bgSoundButton, #fxSoundButton {
+    margin: 0 2px;
+    width: 30px;
+    height: 30px;
+  }
+  .credits {
+    margin-top: 30px;
+    font-size: 0.9em;
+  }
+  #pauseButton {
+    width: 30px;
+    height: 30px;
+  }
+  #score {
+    width: 50px;
+    height: 100px;
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-height: 480px) {
+  .mainContainer > header {
+    padding-top: 0.8%;
+    font-size: 1em;
+  }
+  #gameMainMenu > header {
+    font-size: 4em;
+  }
+  #playButton {
+    width: 55px;
+    height: 55px;
+  }
+  #statsButton, #downloadButton,
+  #bgSoundButton, #fxSoundButton {
+    margin: 0 2px;
+    width: 20px;
+    height: 20px;
+  }
+  .credits {
+    margin-top: 15px;
+    font-size: 0.6em;
+  }
+  #pauseButton {
+    width: 20px;
+    height: 20px;
+  }
+  #score {
+    width: 50px;
+    height: 100px;
+    font-size: 2em;
+  }
+}
