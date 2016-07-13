@@ -10,27 +10,92 @@
 
     <div class="mainContainer">
       <header class="col-xs-12">
-        2Cars
+        2CARS
       </header>
       <div class="bodyMain col-xs-12">
         <div id="gameBox">
           <div id="gameMainMenu">
             <header>
-              <div><strong>2</strong>Cars</div>
+              <div><strong>2</strong>CARS</div>
             </header>
             <section>
-              <div>
+              <div class="bigButtons">
                 <button type="button" id="playButton" title="Play"></button>
               </div>
-              <div class="margintop">
-                <button type="button" id="statsButton" title="Statistics"></button>
-                <button type="button" id="downloadButton" title="Download"></button>
+              <div class="miniButtons margintop">
+                <button type="button" class="statsButton" title="Statistics"></button>
+                <button type="button" class="downloadButton" title="Download"></button>
                 <button type="button" id="bgSoundButton" title="Background Sound"></button>
                 <button type="button" id="fxSoundButton" title="Effects Sound"></button>
               </div>
               <div class="credits">
                 Fork by Erik Martínez<br>
                 @2014 NO POWER-UP
+              </div>
+            </section>
+          </div>
+          <div id="gamePauseMenu">
+            <section class="margin50">
+              <div class="miniButtons margintop">
+                <button type="button" class="homeButton" title="Home"></button>
+                <button type="button" id="resumeButton" title="Resume"></button>
+              </div>
+            </section>
+          </div>
+          <div id="gameStatsMenu">
+            <header>
+              <div>Statistics</div>
+            </header>
+            <section>
+              <div id="statsGraph">
+                <canvas id="statsChart"></canvas>
+              </div>
+              <div id="statsInfo">
+                <table id="statsTable">
+                  <thead>
+                    <tr>
+                      <td>Date</td>
+                      <td>Score</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2016-Jul-13</td>
+                      <td>13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="miniButtons margintop">
+                <button type="button" class="homeButton" title="Home"></button>
+              </div>
+            </section>
+          </div>
+          <div id="gameGOMenu">
+            <header>
+              <div>Game Over</div>
+            </header>
+            <section>
+              <div id="totalScore">
+                <table id="totalScoreTable">
+                  <tr>
+                    <td class="text-left">SCORE</td>
+                    <td class="text-right">0</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">BEST</td>
+                    <td class="text-right">0</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="bigButtons">
+                <button type="button" id="resetButton" title="Reset"></button>
+              </div>
+              <div class="miniButtons margintop">
+                <button type="button" class="homeButton" title="Home"></button>
+                <button type="button" class="statsButton" title="Statistics"></button>
+                <button type="button" id="twitterButton" title="Twitter"></button>
+                <button type="button" class="downloadButton" title="Download"></button>
               </div>
             </section>
           </div>
@@ -43,8 +108,18 @@
         </div>
       </div>
     </div>
+    
+    <!-- ASSETS -->
+    <audio autoplay loop id="bgSound" src="assets/sound/helix_nebula.mp3">
+      Your browser doesn't support audio files
+    </audio>
+    
+    <audio id="fxSound">
+      Your browser doesn't support audio files
+    </audio>
 
     <!-- SCRIPT LIST -->
+    <script src="assets/js/jCanvas.js"></script>
     <script src="assets/js/jItter.js"></script>
     <!--<script src="assets/js/jItter.js"></script>-->
 

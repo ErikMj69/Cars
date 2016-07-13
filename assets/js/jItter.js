@@ -30,8 +30,39 @@
   var bodyMain = document.getElementsByClassName('bodyMain')[0],
       gameBox = document.getElementById('gameBox'),
       car_1 = document.getElementById('car_1'),
-      car_2 = document.getElementById('car_2');
+      car_2 = document.getElementById('car_2'),
 
+      // MENUS
+      mainMenu = document.getElementById("gameMainMenu"),
+      pauseMenu = document.getElementById("gamePauseMenu"),
+      goMenu = document.getElementById("gameGOMenu"),
+      statsMenu = document.getElementById("gameStatsMenu"),
+
+      // NON-STATIC BUTTONS
+      homeBtn = document.getElementsByClassName("homeButton"),
+      statsBtn = document.getElementsByClassName("statsButton"),
+      downloadBtn = document.getElementsByClassName("downloadButton"),
+      nsButtonArr = [homeBtn, statsBtn, downloadBtn],
+
+      // STATIC BUTTONS
+      playBtn = document.getElementById("playButton"),
+      resumeBtn = document.getElementById("resumeButton"),
+      pauseBtn = document.getElementById("pauseButton"),
+      resetBtn = document.getElementById("resetButton"),
+      twitterBtn = document.getElementById("twitterButton"),
+      bgSoundBtn = document.getElementById("bgSoundButton"),
+      fxSoundBtn = document.getElementById("fxSoundButton")
+  
+      // ASSETS
+      bgSound = document.getElementById("bgSound"),
+      fxSound = document.getElementById("fxSound");
+
+  // Configuration
+  var config = {
+    bgSound: 1,
+    fxSound: 1
+  };
+  
   // FUNCTION FOR RESIZING
   function resizeElm() {
     var h = bodyMain.clientHeight,
@@ -55,5 +86,106 @@
   
   // INITIALIZATION
   resizeElm();
+  
+  // EVENTS
+  nsButtonArr.forEach(function(item, index) {
+    for(var sitem in item) {
+
+      if (!item.hasOwnProperty(sitem)) continue;
+
+      item[sitem].addEventListener("click", function() {
+        switch(item[0].className) {
+          case 'homeButton':
+            mainMenu.style.display = "block";
+            statsMenu.style.display = "none";
+            goMenu.style.display = "none";
+            pauseMenu.style.display = "none";
+            
+            // App.gameStop();
+            break;
+          case 'statsButton':
+            mainMenu.style.display = "none";
+            statsMenu.style.display = "block";
+            goMenu.style.display = "none";
+            pauseMenu.style.display = "none";
+            
+            Canvas.draw([
+              ['2016-06-02', 50],
+              ['2016-06-13', 30]
+            ]);
+            break;
+          case 'downloadButton':
+            location.href = "https://play.google.com/store/apps/details?id=com.ketchapp.twocars";
+            break;
+        }
+      });
+
+    }
+  });
+  
+  
+  playBtn.addEventListener("click", function() {
+    mainMenu.style.display = "none";
+    statsMenu.style.display = "none";
+    goMenu.style.display = "none";
+    pauseMenu.style.display = "none";
+
+    // App.initGame();
+  });
+
+  resumeBtn.addEventListener("click", function() {
+    mainMenu.style.display = "none";
+    statsMenu.style.display = "none";
+    goMenu.style.display = "none";
+    pauseMenu.style.display = "none";
+
+    // App.resumeGame();
+  });
+
+  pauseBtn.addEventListener("click", function() {
+    mainMenu.style.display = "none";
+    statsMenu.style.display = "none";
+    goMenu.style.display = "none";
+    pauseMenu.style.display = "block";
+
+    // App.pauseGame();
+  });
+  
+  resetBtn.addEventListener("click", function() {
+    mainMenu.style.display = "none";
+    statsMenu.style.display = "none";
+    goMenu.style.display = "none";
+    pauseMenu.style.display = "none";
+
+    // App.resetGame();
+  });
+  
+  twitterBtn.addEventListener("click", function() {
+    var score = 100,
+        text = "OMG I scored " + score + " points in the #2Cars game on Android https://play.google.com/store/apps/details?id=com.ketchapp.twocars";
+
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), "Twitter", "height=300,width=600");
+  });
+  
+  bgSoundBtn.addEventListener("click", function() {
+    if(config.bgSound) {
+      bgSound.pause();
+      config.bgSound = 0;
+    } else {
+      bgSound.play();
+      config.bgSound = 1;
+    }
+  });
+
+  fxSoundBtn.addEventListener("click", function() {
+    if(config.fxSound) {
+    fxSound.pause();
+      config.fxSound = 0;
+    } else {
+      fxSound.play();
+      config.fxSound = 1;
+    }
+  });
+
 
 })();

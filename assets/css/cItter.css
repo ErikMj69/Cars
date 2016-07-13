@@ -41,6 +41,11 @@
   src: url(../fonts/Phenomena-ExtraLight.otf);
 }
 
+@font-face {
+  font-family: 'Infinity';
+  src: url(../fonts/Infinity.ttf);
+}
+
 body {
   background-color: #f0f0f0;
   position: absolute;
@@ -54,12 +59,28 @@ button {
   outline: none;
 }
 
+.margin30 {
+  margin-top: 30%;
+}
+
+.margin50 {
+  margin-top: 50%;
+}
+
 .margintop {
   margin-top: 40px;
 }
 
 .mainContainer {
   height: 100%;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
 }
 
 
@@ -97,54 +118,106 @@ button {
   transition: width 2s ease;
 }
 
-#gameMainMenu, #gameEnv {
+#gameMainMenu, #gameEnv, #gamePauseMenu, #gameStatsMenu, #gameGOMenu {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-#gameMainMenu {
+#gameMainMenu, #gamePauseMenu, #gameStatsMenu, #gameGOMenu {
   background: rgba(30, 30, 30, 0.6);
-  z-index: 60;
   
   color: #FFF;
   font-family: 'Phenomena';
 }
 
-#gameMainMenu > header {
+#gameMainMenu {
+  display: block;
+  z-index: 150;
+}
+
+#gamePauseMenu {
+  display: none;
+  z-index: 140;
+}
+
+#gameStatsMenu {
+  display: none;
+  z-index: 130;
+}
+
+#gameGOMenu {
+  display: none;
+  z-index: 120;
+}
+
+#totalScoreTable, #statsTable {
+  margin: 0 auto;
+  font-family: 'Infinity';
+  font-weight: bold;
+}
+
+#gameMainMenu > header,
+#gameGOMenu > header,
+#gameStatsMenu > header {
   margin-top: 30%;
-  font-family: 'PhenomenaExtraLight';
+  font-family: 'Infinity';
   text-align: center;
 }
 
-#gameMainMenu > section {
+#gameMainMenu > section,
+#gamePauseMenu > section,
+#gameGOMenu > section,
+#gameStatsMenu > section {
   text-align: center;
 }
 
-#gameMainMenu button {
+#gameMainMenu button,
+#gamePauseMenu button,
+#gameGOMenu button,
+#gameStatsMenu button {
   background: transparent no-repeat center center;
   background-size: contain;
   border: 2px solid #FFF;
   border-radius: 100%;
 }
 
-#gameMainMenu button:hover {
+#gameMainMenu button:hover,
+#gamePauseMenu button:hover,
+#gameGOMenu button:hover,
+#gameStatsMenu button:hover {
   background-color: rgba(250, 250, 250, 0.1);
 }
 
-#gameMainMenu button:active {
+#gameMainMenu button:active,
+#gamePauseMenu button:active,
+#gameGOMenu button:active,
+#gameStatsMenu button:active {
   background-color: rgba(250, 250, 250, 0.2);
 }
 
-#playButton {
+#playButton, #resumeButton {
   background-image: url(../images/play.svg) !important;
 }
 
-#statsButton {
+.homeButton {
+  background-image: url(../images/home.svg) !important;
+}
+
+#resetButton {
+  background-image: url(../images/reset.svg) !important;
+}
+
+.statsButton {
   background-image: url(../images/stats.png) !important;
 }
 
-#downloadButton {
+#twitterButton {
+  background-image: url(../images/twitter_icon.png) !important;
+  background-size: 70% !important;
+}
+
+.downloadButton {
   background-image: url(../images/star.svg) !important;
 }
 
@@ -158,6 +231,22 @@ button {
 
 .credits {
   font-family: 'PhenomenaExtraLight';
+}
+
+#statsChart {
+  /*background-color: rgba(180, 180, 180, 0.5);*/
+  border-bottom: 1px solid #FFF;
+  margin: 0 auto;
+  width: 80%;
+  height: 5%;
+}
+
+#statsTable thead {
+  font-weight: bold;
+}
+
+#statsTable tbody {
+  font-weight: normal;
 }
 
 #gameEnv {
@@ -206,12 +295,26 @@ button {
   #gameMainMenu > header {
     font-size: 10em;
   }
-  #playButton {
+  #gameStatsMenu > header,
+  #gameGOMenu > header {
+    font-size: 5em;
+  }
+  #totalScore {
+    padding: 5% 0;
+  }
+  #totalScoreTable {
+    font-size: 2em;
+    width: 20%;
+  }
+  #statsTable {
+    font-size: 2em;
+    width: 50%;
+  }
+  .bigButtons button {
     width: 150px;
     height: 150px;
   }
-  #statsButton, #downloadButton,
-  #bgSoundButton, #fxSoundButton {
+  .miniButtons button {
     margin: 0 5px;
     width: 40px;
     height: 40px;
@@ -239,12 +342,26 @@ button {
   #gameMainMenu > header {
     font-size: 6em;
   }
-  #playButton {
+  #gameStatsMenu > header,
+  #gameGOMenu > header {
+    font-size: 3em;
+  }
+  #totalScore {
+    padding: 5% 0;
+  }
+  #totalScoreTable {
+    font-size: 1.5em;
+    width: 20%;
+  }
+  #statsTable {
+    font-size: 1.5em;
+    width: 50%;
+  }
+  .bigButtons button {
     width: 85px;
     height: 85px;
   }
-  #statsButton, #downloadButton,
-  #bgSoundButton, #fxSoundButton {
+  .miniButtons button {
     margin: 0 2px;
     width: 30px;
     height: 30px;
@@ -272,12 +389,26 @@ button {
   #gameMainMenu > header {
     font-size: 4em;
   }
-  #playButton {
+  #gameStatsMenu > header,
+  #gameGOMenu > header {
+    font-size: 2em;
+  }
+  #totalScore {
+    padding: 5% 0;
+  }
+  #totalScoreTable {
+    font-size: 0.8em;
+    width: 20%;
+  }
+  #statsTable {
+    font-size: 0.8em;
+    width: 50%;
+  }
+  .bigButtons button {
     width: 55px;
     height: 55px;
   }
-  #statsButton, #downloadButton,
-  #bgSoundButton, #fxSoundButton {
+  .miniButtons button {
     margin: 0 2px;
     width: 20px;
     height: 20px;
